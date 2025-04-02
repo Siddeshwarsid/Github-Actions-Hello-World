@@ -43,7 +43,7 @@ jobs:
 
       - name: Debug Network Connection to Kubernetes
         run: |
-          curl -k https://10.0.1.216:6443/version
+          curl -k https://54.86.99.106:6443/version
           nc -zv 10.0.1.216 6443
 
       - name: Verify Kubeconfig

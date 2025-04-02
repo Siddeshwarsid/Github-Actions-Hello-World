@@ -41,6 +41,16 @@ jobs:
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
           docker push siddeshwarsid/helloworld-py:latest
 
+      - name: Debug Network Connection to Kubernetes
+        run: |
+          curl -k https://10.0.1.216:6443/version
+          nc -zv 10.0.1.216 6443
+
+      - name: Verify Kubeconfig
+        run: |
+          kubectl config view
+          kubectl get nodes
+  
       - name: Deploy to k3s
         run: |
           kubectl apply -f k8s/deployment.yaml

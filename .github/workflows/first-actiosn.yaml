@@ -37,9 +37,9 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-          docker build -t myregistry/helloworld:latest .
+          docker build -t siddeshwarsid/helloworldPY:latest .
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-          docker push myregistry/helloworld:latest
+          docker push siddeshwarsid/helloworldPY:latest
 
       - name: Deploy to k3s
         run: |
